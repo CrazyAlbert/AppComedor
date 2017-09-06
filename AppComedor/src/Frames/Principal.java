@@ -39,6 +39,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     Calendar calendario;
     Thread h1;
     
+    
     /**
      * Creates new form Principal
      */
@@ -76,7 +77,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jMenuItem1 = new javax.swing.JMenuItem();
         lbEmp = new javax.swing.JLabel();
         labelEtiNom = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbMsj = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
         txtid_emp = new javax.swing.JTextField();
         labelNomb = new javax.swing.JLabel();
@@ -103,8 +104,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiNom.setFont(new java.awt.Font("Times New Roman", 0, 72)); // NOI18N
         labelEtiNom.setText("Nombre:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 52)); // NOI18N
-        jLabel3.setText("Tapas Solidas");
+        lbMsj.setFont(new java.awt.Font("Times New Roman", 0, 52)); // NOI18N
 
         lbHora.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         lbHora.setText("13:00:05");
@@ -176,36 +176,37 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(965, 965, 965))
+                        .addComponent(jLabel11)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
+                            .addComponent(labelNumEmp)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNumEmp)
+                                    .addComponent(labelEtiDep)
+                                    .addComponent(labelEtiComida))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelEtiDep)
-                                            .addComponent(labelEtiComida))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(100, 100, 100)
-                                                .addComponent(txtid_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(labelTipoCom)
-                                                    .addComponent(labelDepto)))))
+                                        .addGap(100, 100, 100)
+                                        .addComponent(txtid_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelTipoCom)
+                                            .addComponent(labelDepto)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                                .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(142, 142, 142))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,13 +229,15 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEtiComida)
                             .addComponent(labelTipoCom)))
-                    .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(90, 90, 90))
         );
 
@@ -368,7 +371,6 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -386,6 +388,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel labelTipoCom;
     private javax.swing.JLabel lbEmp;
     private javax.swing.JLabel lbHora;
+    private javax.swing.JLabel lbMsj;
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
@@ -396,8 +399,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     public void run() {
         Thread ct = Thread.currentThread();
         while (ct == h1) {
+            mensaje();
             calcula();
             lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            
+                    
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -421,6 +427,70 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
         minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+        
+        
+    }
+    
+    
+   /////////////////////////////////////////////////////////
+    
+    public void mensaje(){
+       
+        Calendar calendario = new GregorianCalendar();
+       
+        int h23, h24;
+        
+        h23 = calendario.get(Calendar.HOUR_OF_DAY);
+        System.out.println(h23);
+        h24 = calendario.get(Calendar.MINUTE);
+        System.out.println(h24);
+        
+        if(h23 == 0){
+            if(h24 == 47){
+               // System.out.println("Sistemas");
+                lbMsj.setText("Sistemas");
+                
+            }
+            
+        }
+        
+        if(h23 == 0){
+            if(h24 == 48){
+                //System.out.println("Sistemas");
+                lbMsj.setText("Sistemas, Tapas Solidas");
+                
+            }
+            
+        }
+        
+       /*Date d = new Date();
+       Calendar cal = Calendar.getInstance();
+       cal.setTime(h11);
+        
+       int hour1 = cal.get(Calendar.HOUR_OF_DAY);
+       System.out.println(hour1);
+        
+        
+        
+        /* Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        h11= new Date();
+        m11= new Date();
+       
+        
+        if(h11.getHours() == 10){
+            if(m11.getMinutes() == 28){
+            lbMsj.setText("Sistemas");
+            }
+        
+        }*/
+       
+       // String hora1, min;
+       // int hora1;
+       // hora1 = new Date();
+       //System.out.println("hora " + Date);
+    
+       
     }
 }
 
