@@ -87,6 +87,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiComida = new javax.swing.JLabel();
         labelTipoCom = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lbSaludo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -198,7 +199,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                                 .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 1149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,7 +215,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
+                        .addGap(32, 32, 32)
+                        .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNumEmp)
                             .addComponent(txtid_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -389,6 +393,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel lbEmp;
     private javax.swing.JLabel lbHora;
     private javax.swing.JLabel lbMsj;
+    private javax.swing.JLabel lbSaludo;
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
@@ -444,6 +449,16 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         System.out.println(h23);
         h24 = calendario.get(Calendar.MINUTE);
         System.out.println(h24);
+        
+        if(h23 == 0){
+            if(h24 == 00){
+               // System.out.println("Sistemas");
+                lbSaludo.setText("Buenos Dias");
+                
+            }
+            
+        }
+        
         
         if(h23 == 0){
             if(h24 == 47){

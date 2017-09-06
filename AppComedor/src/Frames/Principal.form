@@ -102,6 +102,7 @@
                               <Component id="labelNomb" min="-2" pref="906" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lbMsj" alignment="0" min="-2" pref="499" max="-2" attributes="0"/>
+                          <Component id="lbSaludo" alignment="0" min="-2" pref="1149" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -124,7 +125,9 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="lbSaludo" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelNumEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtid_emp" alignment="3" min="-2" pref="84" max="-2" attributes="0"/>
@@ -262,6 +265,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Departamento Actual"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbSaludo">
     </Component>
   </SubComponents>
 </Form>
