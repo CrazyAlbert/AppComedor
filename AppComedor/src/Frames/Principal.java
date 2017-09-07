@@ -148,6 +148,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 52)); // NOI18N
         jLabel11.setText("Departamento Actual");
 
+        lbSaludo.setFont(new java.awt.Font("Engravers MT", 3, 72)); // NOI18N
+
         jMenu1.setText("Reportes");
 
         jMenuItem2.setText("Reporte Asistencia Saludable");
@@ -446,12 +448,14 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         int h23, h24;
         
         h23 = calendario.get(Calendar.HOUR_OF_DAY);
-        System.out.println(h23);
+        //System.out.println(h23);
         h24 = calendario.get(Calendar.MINUTE);
-        System.out.println(h24);
+        //System.out.println(h24);
         
-        if(h23 == 0){
-            if(h24 == 00){
+        //Mensajes de Saludo
+        ///////////////////////////////////////////////////////////////////
+        if(h23 == 00){
+            if(h24 == 5){
                // System.out.println("Sistemas");
                 lbSaludo.setText("Buenos Dias");
                 
@@ -459,9 +463,30 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             
         }
         
+        if(h23 == 12){
+            if(h24 == 00){
+               // System.out.println("Sistemas");
+                lbSaludo.setText("Buenas Tardes");
+                
+            }
+            
+        }
         
-        if(h23 == 0){
-            if(h24 == 47){
+        if(h23 == 20){
+            if(h24 == 00){
+               // System.out.println("Sistemas");
+                lbSaludo.setText("Buenas Noches");
+                
+            }
+            
+        }
+        
+        ///////////////////////////////////////////////////////////////////////
+        //Peomedio de ifs 7 por la noche revison de cuantos por la ma;ana es de una sola comida seran demaciados
+        
+        
+        if(h23 == 16){
+            if(h24 == 59){
                // System.out.println("Sistemas");
                 lbMsj.setText("Sistemas");
                 

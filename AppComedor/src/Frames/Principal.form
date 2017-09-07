@@ -267,6 +267,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbSaludo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Engravers MT" size="72" style="3"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
