@@ -6,6 +6,7 @@
 package Frames;
 
 import Clases.Conexion;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -25,21 +26,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Alberto Alvarez
  * @author Eduardo Hernandez
- * 
+ *
  */
-
 public class Principal extends javax.swing.JFrame implements Runnable {
 
     Conexion con = new Conexion();
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     //Variables
     String codigo;
     String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
-    
-    
+
     /**
      * Creates new form Principal
      */
@@ -51,20 +50,22 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-//        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/fondo_Gris.jpg"));
-//        JLabel fondo = new JLabel();
-//        fondo.setIcon(uno);
-//        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
-//        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
-        
+    //        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/fondo_Gris.jpg"));
+    //        JLabel fondo = new JLabel();
+    //        fondo.setIcon(uno);
+    //        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+    //        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+
         //time
+        PnlFondo pnlFondo = new PnlFondo();
+        this.add(pnlFondo, BorderLayout.CENTER);
+        this.pack();
         h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);//para centrar la ventana
         setVisible(true);
     }
 
- 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,8 +202,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                                 .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 1149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 1149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -252,7 +253,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     //Directorio
     String directory = System.getProperty("user.dir");
-    
+
     private void txtid_empActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid_empActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtid_empActionPerformed
@@ -264,35 +265,32 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         System.out.println(fecha);
 
 
-
     }//GEN-LAST:event_lbHoraMouseClicked
 
     private void txtid_empKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyReleased
         // TODO add your handling code here:James Arthur
-        
+
         codigo = txtid_emp.getText();
-        
-         if (codigo.length() == 6 && evt.getKeyCode() == KeyEvent.VK_ENTER ) {
-            
-             System.out.println("id empleado " + codigo);
+
+        if (codigo.length() == 6 && evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            System.out.println("id empleado " + codigo);
 
             con.ConectarBasedeDatos();
-            String nombre = "", horario = "", departamento = "", platillo = ""
-                   ;
-            
-            String select = "SELECT *  FROM usuario WHERE id_usuario = '"+ codigo +"'"; 
-            
-            
+            String nombre = "", horario = "", departamento = "", platillo = "";
+
+            String select = "SELECT *  FROM usuarios WHERE num_Emp  = '" + codigo + "'";
+
             try {
                 con.resultado = con.sentencia.executeQuery(select);
                 if (con.resultado.next()) {
-                   // lbNumero.setText(primeros);
-                   
+                    // lbNumero.setText(primeros);
+
                     nombre = con.resultado.getString("nombre");
-                   // horario = con.resultado.getString("horario");
+                    // horario = con.resultado.getString("horario");
                     departamento = con.resultado.getString("departamento");
-                    platillo = con.resultado.getString("platillo");
-                    
+                    platillo = con.resultado.getString("comida");
+
                     txtid_emp.setText(null);
 
                     String nomb = codigo;
@@ -306,33 +304,28 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             Image.SCALE_SMOOTH));
                     lbEmp.setIcon(icono);
 
-                    
-
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "No encontro el numero de empleado", "Codigo incorrecto", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
             con.DesconectarBasedeDatos();
-           // lbNumero.setText(primeros);
+            // lbNumero.setText(primeros);
             labelNomb.setText(nombre);
             labelTipoCom.setText(platillo);
             labelDepto.setText(departamento);
-            
-           /* lbDesc.setText(descripcion);
+
+            /* lbDesc.setText(descripcion);
             lbInterior.setText(interior);
             lbDibujo.setText(dibujo);
             lbTubo.setText(tubo_mem);
             lbCaja.setText(cajon_rec);
             lbCama.setText(cama);
             lbRub.setText(rub);*/
-
-            
-
             txtid_emp.setText(null);
         }
-         
+
     }//GEN-LAST:event_txtid_empKeyReleased
 
     /**
@@ -365,14 +358,149 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         //</editor-fold>
 
         /* Create and display the form */
-        
-        
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
             }
         });
+    }
+    
+    
+    //Proceso del tiempo
+    @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+            mensaje();
+            saludo();
+            calcula();
+            lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+        }
+    }
+
+    //Reloj de formato 12 hrs
+    public void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+
+    }
+
+    //Test de Switch
+    public void mensaje() {
+        Calendar horaActual = Calendar.getInstance();
+        Calendar minActual = Calendar.getInstance();
+
+        switch (horaActual.get(Calendar.HOUR_OF_DAY)) {
+            case 8:	
+            case 9:
+            case 10:
+            case 12:
+            case 13:
+            case 18: // extra switch de comida de tarde
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 15:
+                        //System.out.println("funcionando");
+                        lbMsj.setText("Herrajes, Interiores");
+                    case 25:
+                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 30:
+                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                    case 40:
+                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 50:
+                        lbMsj.setText("Pulido, Acabado, Cajones");
+                        break;
+                }
+            case 19:// extra switch de comida de tarde
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 10:
+
+                        lbMsj.setText("Acabado, Cajones, Small Parts");
+                    case 15:
+
+                        lbMsj.setText("Cajones, Small Parts, Tapas");
+                    case 25:
+                        lbMsj.setText("Small Parts, Tapas");
+                    case 30:
+                        lbMsj.setText("Administrativos, Intendencia");
+                        break;
+                }
+            case 21: // extra switch de cena
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 55:
+                        lbMsj.setText("Herrajes, Interiores");
+                        break;
+                }
+            case 22:// extra switch de cena
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 05:
+                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 10:
+                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                    case 20:
+                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 30:
+                        lbMsj.setText("Pulido, Acabado, Cajones");
+                    case 45:
+                        lbMsj.setText("Cajones, Small Parts");
+                    case 50:
+                        lbMsj.setText("Cajones, Small Parts, Tapas");
+                        break;
+                }
+            case 23:// extra switch de cena 
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 00:
+                        lbMsj.setText(" Tapas, Administrativos, Intendencia");
+                        break;
+                }
+                break;
+        }
+    }
+
+/////////////////////////////////////////////////////////
+    public void saludo() {
+        Calendar calendario = new GregorianCalendar();
+
+        int h23, h24;
+
+        h23 = calendario.get(Calendar.HOUR_OF_DAY);
+        h24 = calendario.get(Calendar.MINUTE);
+
+        if (h23 == 00) {
+            if (h24 == 5) {
+                lbSaludo.setText("Buenos Dias");
+            }
+        }
+
+        if (h23 == 12) {
+            if (h24 == 00) {
+                lbSaludo.setText("Buenas Tardes");
+            }
+        }
+
+        if (h23 == 20) {
+            if (h24 == 00) {
+                lbSaludo.setText("Buenas Noches");
+            }
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -399,142 +527,4 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
-    
-   //Proceso del tiempo
-
-    @Override
-    public void run() {
-        Thread ct = Thread.currentThread();
-        while (ct == h1) {
-            mensaje();
-            calcula();
-            lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
-            
-                    
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
-        }
-    }
-
-    public void calcula() {
-        Calendar calendario = new GregorianCalendar();
-        Date fechaHoraActual = new Date();
-
-
-        calendario.setTime(fechaHoraActual);
-        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
-
-        if (ampm.equals("PM")) {
-            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
-            hora = h > 9 ? "" + h : "0" + h;
-        } else {
-            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
-        }
-        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
-        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
-        
-        
-    }
-    
-    
-   /////////////////////////////////////////////////////////
-    
-    public void mensaje(){
-       
-        Calendar calendario = new GregorianCalendar();
-       
-        int h23, h24;
-        
-        h23 = calendario.get(Calendar.HOUR_OF_DAY);
-        //System.out.println(h23);
-        h24 = calendario.get(Calendar.MINUTE);
-        //System.out.println(h24);
-        
-        //Mensajes de Saludo
-        ///////////////////////////////////////////////////////////////////
-        if(h23 == 00){
-            if(h24 == 5){
-               // System.out.println("Sistemas");
-                lbSaludo.setText("Buenos Dias");
-                
-            }
-            
-        }
-        
-        if(h23 == 12){
-            if(h24 == 00){
-               // System.out.println("Sistemas");
-                lbSaludo.setText("Buenas Tardes");
-                
-            }
-            
-        }
-        
-        if(h23 == 20){
-            if(h24 == 00){
-               // System.out.println("Sistemas");
-                lbSaludo.setText("Buenas Noches");
-                
-            }
-            
-        }
-        
-        ///////////////////////////////////////////////////////////////////////
-        //Peomedio de ifs 7 por la noche revison de cuantos por la ma;ana es de una sola comida seran demaciados
-        
-        
-        if(h23 == 16){
-            if(h24 == 59){
-               // System.out.println("Sistemas");
-                lbMsj.setText("Sistemas");
-                
-            }
-            
-        }
-        
-        if(h23 == 0){
-            if(h24 == 48){
-                //System.out.println("Sistemas");
-                lbMsj.setText("Sistemas, Tapas Solidas");
-                
-            }
-            
-        }
-        
-       /*Date d = new Date();
-       Calendar cal = Calendar.getInstance();
-       cal.setTime(h11);
-        
-       int hour1 = cal.get(Calendar.HOUR_OF_DAY);
-       System.out.println(hour1);
-        
-        
-        
-        /* Calendar calendario = new GregorianCalendar();
-        Date fechaHoraActual = new Date();
-        h11= new Date();
-        m11= new Date();
-       
-        
-        if(h11.getHours() == 10){
-            if(m11.getMinutes() == 28){
-            lbMsj.setText("Sistemas");
-            }
-        
-        }*/
-       
-       // String hora1, min;
-       // int hora1;
-       // hora1 = new Date();
-       //System.out.println("hora " + Date);
-    
-       
-    }
 }
-
-
-
-
-
