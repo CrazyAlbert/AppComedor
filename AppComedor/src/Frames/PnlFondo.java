@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 public class PnlFondo extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlFondo
+     * Creates new form PnlFondohfdjfsjtrsjytrwjtrwjn6ytfr
      */
     public PnlFondo() {
         initComponents();
