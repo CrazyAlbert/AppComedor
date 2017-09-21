@@ -21,13 +21,12 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        //this.setExtendedState(MAXIMIZED_BOTH);
-        setTitle("Batesville");
+        setTitle("Batesville Chihuahua");
         setLocationRelativeTo(null);
-        //setExtendedState(MAXIMIZED_BOTH);
+        this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/nature.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-       ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test1.jpg"));
+       ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test9.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
