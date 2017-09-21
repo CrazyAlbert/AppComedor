@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Eduardo Hernandez
  *
  */
-public class Principal extends javax.swing.JFrame implements Runnable {
+public class Principal2 extends javax.swing.JFrame implements Runnable {
 
     Conexion con = new Conexion();
     DefaultTableModel modelo = new DefaultTableModel();
@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public Principal2() {
         initComponents();
         //this.setExtendedState(MAXIMIZED_BOTH);
         setTitle("Batesville");
@@ -106,7 +106,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiNom.setText("Nombre:");
 
         lbMsj.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        lbMsj.setText("Nada por el momento");
+        lbMsj.setText("---------------------------");
 
         lbHora.setFont(new java.awt.Font("Calisto MT", 3, 60)); // NOI18N
         lbHora.setText("13:00:05");
@@ -129,7 +129,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         });
 
         labelNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
-        labelNomb.setText("------------");
+        labelNomb.setText("--------------");
 
         labelNumEmp.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelNumEmp.setText("Número Empleado");
@@ -138,13 +138,13 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiDep.setText("Área: ");
 
         labelDepto.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelDepto.setText("---------");
+        labelDepto.setText("-----------");
 
         labelEtiComida.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelEtiComida.setText("Tipo Comida:");
 
         labelTipoCom.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelTipoCom.setText("--------");
+        labelTipoCom.setText("-----------");
 
         jLabel11.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         jLabel11.setText("Area Actual :");
@@ -329,7 +329,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     /**
      * @param args the command line arguments
      */
-   
+    
 
     //Proceso del tiempo///////////////////////////////////////////////////////
     @Override
@@ -376,157 +376,72 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             case 8://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Herrajes, Interiores");
+                        lbMsj.setText("Interiores");
                         break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 10:
+                        lbMsj.setText("Interiores, Interiores AWC, Retornos");
                         break;
-                    case 20:
-                        lbMsj.setText("bugeandose 20");
+                    case 15:
+                        lbMsj.setText("Interiores AWC, Retornos, Acabado");
                         break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 30:
+                        lbMsj.setText("Acabado, FT WW");
                         break;
-                    case 35:
-                        lbMsj.setText("testing bug");
+                    case 40:
+                        lbMsj.setText("FT WW, AWC WW");
                         break;
-                    case 45:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 50:
+                        lbMsj.setText("AWC WW, RTA");
                         break;
                 }
+                break;
+
             case 9://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 15:
-                        lbMsj.setText("bugeandose 20");
-                        break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado");
-                        break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                        lbMsj.setText("Mantenimiento, Materiales, Aduanas");
                         break;
                 }
                 break;
-
-            case 12://entra a switch de comida
+            case 10://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
-                        break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 35:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                    case 45:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                        lbMsj.setText("Appled Molding");
                         break;
                 }
                 break;
                 
-            case 13://entra a switch de comida
+            case 12://entra a switch de comida 
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Herrajes, Interiores");
+                        lbMsj.setText("Interiores");
+                        break;
+                    case 10:
+                        lbMsj.setText("Interiores, Interiores AWC, Retornos");
                         break;
                     case 15:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
-                        break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                }
-                break;
-                
-            case 18: // extra switch de comida de tarde
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 15:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 25:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                        lbMsj.setText("Interiores AWC, Retornos, Acabado");
                         break;
                     case 30:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                        lbMsj.setText("Acabado, FT WW");
                         break;
                     case 40:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                        lbMsj.setText("FT WW, AWC WW");
                         break;
                     case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                        lbMsj.setText("AWC WW, RTA");
                         break;
                 }
                 break;
-
-            case 19:// extra switch de comida de tarde
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 10:
-                        lbMsj.setText("Acabado, Cajones, Small Parts");
-                        break;
-                    case 15:
-                        lbMsj.setText("bugeo minuto 15");
-                        break;
-                    case 25:
-                        lbMsj.setText("Small Parts, Tapas");
-                        break;
-                    case 30:
-                        lbMsj.setText("Administrativos, Intendencia");
-                        break;
-                }
-                break;
-
-            case 21: // extra switch de cena
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 55:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                }
-                break;
-            case 22:// extra switch de cena
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 10:
-                        lbMsj.setText("Interiores,Planta 2, Pulido");
-                        break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado bug 20");
-                        break;
-                    case 30:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                    case 45:
-                        lbMsj.setText("Cajones, Small Parts");
-                        break;
-                    case 50:
-                        lbMsj.setText("Cajones, Small Parts, Tapas");
-                        break;
-                }
-                break;
-            case 23:// extra switch de cena 
+             
+            case 13://entra a switch de comida 
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText(" Tapas, Administrativos, Intendencia");
+                        lbMsj.setText("Appled Molding");
                         break;
-                    case 20:
-                        lbMsj.setText("");
+                    case 10:
+                        lbMsj.setText("Mantenimiento,Materiales, Aduanas");
+                        break;
                 }
                 break;
         }

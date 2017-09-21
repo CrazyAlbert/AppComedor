@@ -178,7 +178,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="60" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nada por el momento"/>
+        <Property name="text" type="java.lang.String" value="---------------------------"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbHora">
@@ -208,7 +208,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="50" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="------------"/>
+        <Property name="text" type="java.lang.String" value="--------------"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNumEmp">
@@ -232,7 +232,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="60" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="---------"/>
+        <Property name="text" type="java.lang.String" value="-----------"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelEtiComida">
@@ -248,7 +248,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="60" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="--------"/>
+        <Property name="text" type="java.lang.String" value="-----------"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
