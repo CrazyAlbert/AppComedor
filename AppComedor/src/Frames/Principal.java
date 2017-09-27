@@ -10,15 +10,17 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +35,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     Conexion con = new Conexion();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    //Variables
+    //Variables 
     String codigo;
     String hora, minutos, segundos, ampm;
     Calendar calendario;
@@ -81,12 +83,12 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lbMsj = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
         txtid_emp = new javax.swing.JTextField();
-        labelNomb = new javax.swing.JLabel();
+        lbNomb = new javax.swing.JLabel();
         labelNumEmp = new javax.swing.JLabel();
         labelEtiDep = new javax.swing.JLabel();
-        labelDepto = new javax.swing.JLabel();
+        lbArea = new javax.swing.JLabel();
         labelEtiComida = new javax.swing.JLabel();
-        labelTipoCom = new javax.swing.JLabel();
+        lbTComida = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbSaludo = new javax.swing.JLabel();
         lbAlert = new javax.swing.JLabel();
@@ -125,8 +127,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        labelNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
-        labelNomb.setText("------------");
+        lbNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
+        lbNomb.setText("------------");
 
         labelNumEmp.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelNumEmp.setText("Número Empleado");
@@ -134,14 +136,14 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiDep.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelEtiDep.setText("Área: ");
 
-        labelDepto.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelDepto.setText("---------");
+        lbArea.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
+        lbArea.setText("---------");
 
         labelEtiComida.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelEtiComida.setText("Tipo Comida:");
 
-        labelTipoCom.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelTipoCom.setText("--------");
+        lbTComida.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
+        lbTComida.setText("--------");
 
         jLabel11.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         jLabel11.setText("Area Actual :");
@@ -180,7 +182,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelNumEmp)
                                 .addGap(60, 60, 60)
@@ -188,11 +190,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiDep)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelDepto))
+                                .addComponent(lbArea))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiComida)
                                 .addGap(75, 75, 75)
-                                .addComponent(labelTipoCom))
+                                .addComponent(lbTComida))
                             .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
                             .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -221,16 +223,16 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addComponent(txtid_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNomb)
+                            .addComponent(lbNomb)
                             .addComponent(labelEtiNom))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEtiDep)
-                            .addComponent(labelDepto))
+                            .addComponent(lbArea))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEtiComida)
-                            .addComponent(labelTipoCom))
+                            .addComponent(lbTComida))
                         .addGap(36, 36, 36)
                         .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
@@ -279,6 +281,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
             try {
                 con.resultado = con.sentencia.executeQuery(select);
+                
                 if (con.resultado.next()) {
                     // lbNumero.setText(primeros);
 
@@ -286,7 +289,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                     // horario = con.resultado.getString("horario");
                     departamento = con.resultado.getString("departamento");
                     platillo = con.resultado.getString("comida");
-
+                    
+                    
                     txtid_emp.setText(null);
 
                     String nomb = codigo;
@@ -299,6 +303,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             lbEmp.getHeight(),
                             Image.SCALE_SMOOTH));
                     lbEmp.setIcon(icono);
+                    
 
                 } else {
                     JOptionPane.showMessageDialog(this, "No encontro el numero de empleado", "Codigo incorrecto", JOptionPane.ERROR_MESSAGE);
@@ -306,16 +311,18 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
+            
+            
             con.DesconectarBasedeDatos();
             // lbNumero.setText(primeros);
-            labelNomb.setText(nombre);
-            labelTipoCom.setText(platillo);
-            labelDepto.setText(departamento);
+            lbNomb.setText(nombre);
+            lbTComida.setText(platillo);
+            lbArea.setText(departamento);
             txtid_emp.setText(null);
-
+            insertar();
             //insertar a la base de datos
         }
-
+           
     }//GEN-LAST:event_txtid_empKeyReleased
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
@@ -338,6 +345,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             mensaje();
             saludo();
             calcula();
+            
             lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
 
             try {
@@ -561,6 +569,25 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
 
     }
+    
+    public void insertar(){
+    //Insertar 
+    String insert ="INSERT INTO reportediario VALUES ('" + txtid_emp.getText() + ",'"
+                                                         + ",'" + lbNomb.getText() + "'"
+                                                         + ",'" + lbArea.getText() + "'"
+                                                         + ",'" + lbTComida.getText() + "'"
+                                                         + ",'" + lbHora.getText() + "'"
+                                                         + ",current_date())";
+    
+    try {
+                    con.ConectarBasedeDatos();
+                    con.sentencia.execute(insert);
+                    con.DesconectarBasedeDatos();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
@@ -568,20 +595,30 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JLabel labelDepto;
     private javax.swing.JLabel labelEtiComida;
     private javax.swing.JLabel labelEtiDep;
     private javax.swing.JLabel labelEtiNom;
-    private javax.swing.JLabel labelNomb;
     private javax.swing.JLabel labelNumEmp;
-    private javax.swing.JLabel labelTipoCom;
     private javax.swing.JLabel lbAlert;
+    private javax.swing.JLabel lbArea;
     private javax.swing.JLabel lbEmp;
     private javax.swing.JLabel lbHora;
     private javax.swing.JLabel lbMsj;
+    private javax.swing.JLabel lbNomb;
     private javax.swing.JLabel lbSaludo;
+    private javax.swing.JLabel lbTComida;
     private javax.swing.JMenu menuInicio;
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
+    
+    
 }
+
+/*
+if 
+
+switch
+
+
+*/
