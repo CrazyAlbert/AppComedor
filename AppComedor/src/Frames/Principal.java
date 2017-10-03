@@ -10,15 +10,18 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +36,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     Conexion con = new Conexion();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    //Variables
+    //Variables 
     String codigo;
     String hora, minutos, segundos, ampm;
     Calendar calendario;
@@ -45,7 +48,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     public Principal() {
         initComponents();
         //this.setExtendedState(MAXIMIZED_BOTH);
-        setTitle("Batesville");
+        setTitle("Batesville-Chihuahua Comedor Planta 1");
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
@@ -81,20 +84,17 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lbMsj = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
         txtid_emp = new javax.swing.JTextField();
-        labelNomb = new javax.swing.JLabel();
+        lbNomb = new javax.swing.JLabel();
         labelNumEmp = new javax.swing.JLabel();
         labelEtiDep = new javax.swing.JLabel();
-        labelDepto = new javax.swing.JLabel();
+        lbArea = new javax.swing.JLabel();
         labelEtiComida = new javax.swing.JLabel();
-        labelTipoCom = new javax.swing.JLabel();
+        lbTComida = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbSaludo = new javax.swing.JLabel();
         lbAlert = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuInicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -128,8 +128,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        labelNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
-        labelNomb.setText("------------");
+        lbNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
+        lbNomb.setText("------------");
 
         labelNumEmp.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelNumEmp.setText("Número Empleado");
@@ -137,14 +137,14 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         labelEtiDep.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelEtiDep.setText("Área: ");
 
-        labelDepto.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelDepto.setText("---------");
+        lbArea.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
+        lbArea.setText("---------");
 
         labelEtiComida.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         labelEtiComida.setText("Tipo Comida:");
 
-        labelTipoCom.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
-        labelTipoCom.setText("--------");
+        lbTComida.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
+        lbTComida.setText("--------");
 
         jLabel11.setFont(new java.awt.Font("Calibri", 2, 60)); // NOI18N
         jLabel11.setText("Area Actual :");
@@ -153,20 +153,14 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lbSaludo.setText("Buen Dia");
 
         lbAlert.setFont(new java.awt.Font("Calibri", 3, 52)); // NOI18N
-        lbAlert.setText("Alerta! Estás fuera de horario");
 
-        jMenu1.setText("Reportes");
-
-        jMenuItem2.setText("Reporte Asistencia Saludable");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Reporte Tiempo Extra");
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Reporte de Fuera de Tiempo");
-        jMenu1.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu1);
+        menuInicio.setText("Inicio");
+        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuInicioMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menuInicio);
 
         jMenu2.setText("Tiempo Extra");
         jMenuBar1.add(jMenu2);
@@ -188,7 +182,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiNom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelNumEmp)
                                 .addGap(60, 60, 60)
@@ -196,11 +190,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiDep)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelDepto))
+                                .addComponent(lbArea))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelEtiComida)
                                 .addGap(75, 75, 75)
-                                .addComponent(labelTipoCom))
+                                .addComponent(lbTComida))
                             .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
                             .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -213,8 +207,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,16 +223,16 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             .addComponent(txtid_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNomb)
+                            .addComponent(lbNomb)
                             .addComponent(labelEtiNom))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEtiDep)
-                            .addComponent(labelDepto))
+                            .addComponent(lbArea))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEtiComida)
-                            .addComponent(labelTipoCom))
+                            .addComponent(lbTComida))
                         .addGap(36, 36, 36)
                         .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
@@ -287,6 +281,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
             try {
                 con.resultado = con.sentencia.executeQuery(select);
+
                 if (con.resultado.next()) {
                     // lbNumero.setText(primeros);
 
@@ -308,29 +303,62 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                             Image.SCALE_SMOOTH));
                     lbEmp.setIcon(icono);
 
+                    compara();
                 } else {
                     JOptionPane.showMessageDialog(this, "No encontro el numero de empleado", "Codigo incorrecto", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
+
             con.DesconectarBasedeDatos();
             // lbNumero.setText(primeros);
-            labelNomb.setText(nombre);
-            labelTipoCom.setText(platillo);
-            labelDepto.setText(departamento);
+            lbNomb.setText(nombre);
+            lbTComida.setText(platillo);
+            lbArea.setText(departamento);
             txtid_emp.setText(null);
 
+            insertar();
             //insertar a la base de datos
         }
 
     }//GEN-LAST:event_txtid_empKeyReleased
 
+    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+
+        Inicio i = new Inicio();
+        i.setVisible(true);
+        setVisible(false);
+
+
+    }//GEN-LAST:event_menuInicioMouseClicked
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel labelEtiComida;
+    private javax.swing.JLabel labelEtiDep;
+    private javax.swing.JLabel labelEtiNom;
+    private javax.swing.JLabel labelNumEmp;
+    private javax.swing.JLabel lbAlert;
+    private javax.swing.JLabel lbArea;
+    private javax.swing.JLabel lbEmp;
+    private javax.swing.JLabel lbHora;
+    private javax.swing.JLabel lbMsj;
+    private javax.swing.JLabel lbNomb;
+    private javax.swing.JLabel lbSaludo;
+    private javax.swing.JLabel lbTComida;
+    private javax.swing.JMenu menuInicio;
+    private javax.swing.JTextField txtid_emp;
+    // End of variables declaration//GEN-END:variables
+
     /**
      * @param args the command line arguments
      */
-   
-
     //Proceso del tiempo///////////////////////////////////////////////////////
     @Override
     public void run() {
@@ -339,6 +367,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             mensaje();
             saludo();
             calcula();
+
             lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
 
             try {
@@ -436,7 +465,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         break;
                 }
                 break;
-                
+
             case 13://entra a switch de comida
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
@@ -453,7 +482,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         break;
                 }
                 break;
-                
+
             case 18: // extra switch de comida de tarde
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 15:
@@ -541,49 +570,441 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         h23 = calendario.get(Calendar.HOUR_OF_DAY);
         h24 = calendario.get(Calendar.MINUTE);
 
-        if (h23 == 00) {
-            if (h24 == 5) {
+        if (h23 >= 00) {
+            if (h24 >= 5) {
                 lbSaludo.setText("Buen Dia");
             }
         }
 
-        if (h23 == 12) {
-            if (h24 == 00) {
+        if (h23 >= 12) {
+            if (h24 >= 00) {
                 lbSaludo.setText("Buena Tarde");
             }
         }
 
-        if (h23 == 20) {
-            if (h24 == 00) {
+        if (h23 >= 20) {
+            if (h24 >= 00) {
                 lbSaludo.setText("Buena Noche");
             }
         }
 
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JLabel labelDepto;
-    private javax.swing.JLabel labelEtiComida;
-    private javax.swing.JLabel labelEtiDep;
-    private javax.swing.JLabel labelEtiNom;
-    private javax.swing.JLabel labelNomb;
-    private javax.swing.JLabel labelNumEmp;
-    private javax.swing.JLabel labelTipoCom;
-    private javax.swing.JLabel lbAlert;
-    private javax.swing.JLabel lbEmp;
-    private javax.swing.JLabel lbHora;
-    private javax.swing.JLabel lbMsj;
-    private javax.swing.JLabel lbSaludo;
-    private javax.swing.JTextField txtid_emp;
-    // End of variables declaration//GEN-END:variables
+    public void insertar() {
+        //Insertar 
+        String insert = "INSERT INTO reportediario VALUES ('" + codigo + ",'"
+                + ",'" + lbNomb.getText() + "'"
+                + ",'" + lbArea.getText() + "'"
+                + ",'" + lbTComida.getText() + "'"
+                + ",'" + lbHora.getText() + "'"
+                + ",'" + lbAlert.getText() + "'"
+                + ",current_date())";
+
+        try {
+            con.ConectarBasedeDatos();
+            con.sentencia.execute(insert);
+            con.DesconectarBasedeDatos();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void compara() {
+        //compara  
+        //Calendar calendario = new GregorianCalendar();
+        Calendar horaActual = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+
+        //Variables para comparacion
+        String hed = "", hec = "", hece = "", hem = "", c = "";
+        String select = "SELECT * FROM usuarios WHERE num_Emp  = '" + codigo + "'";
+
+        try {
+            con.resultado = con.sentencia.executeQuery(select);
+
+            if (con.resultado.next()) {
+
+                hed = con.resultado.getString("hed");
+                hec = con.resultado.getString("hec");
+                hece = con.resultado.getString("hece");
+                hem = con.resultado.getString("hem");
+
+                String nop = lbHora.getText();
+
+                switch (horaActual.get(Calendar.HOUR_OF_DAY)) {
+
+                    case 8:
+                        Date horae_desayuno = format.parse(hed);
+                        Date hora_check = format.parse(nop);
+                        long diferencia = hora_check.getTime() - horae_desayuno.getTime();
+
+                        if (hora_check.after(horae_desayuno)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia / (60 * 1000) % 60;
+                            long dias_atraso = diferencia / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("smi tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso excelent");
+
+                        }
+                        break;
+                    case 9:
+                        horae_desayuno = format.parse(hed);
+                        hora_check = format.parse(nop);
+                        diferencia = hora_check.getTime() - horae_desayuno.getTime();
+
+                        if (hora_check.after(horae_desayuno)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia / (60 * 1000) % 60;
+                            long dias_atraso = diferencia / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("smi tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso excelent");
+
+                        }
+                        break;
+                    case 12:
+                        Date horae_comida = format.parse(hec);
+                        Date hora_check2 = format.parse(nop);
+                        long diferencia2 = hora_check2.getTime() - horae_comida.getTime();
+
+                        if (hora_check2.after(horae_comida)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia2 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia2 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("55i tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso uju");
+
+                        }
+                        break;
+                    case 13:
+                        horae_comida = format.parse(hec);
+                        hora_check2 = format.parse(nop);
+                        diferencia2 = hora_check2.getTime() - horae_comida.getTime();
+
+                        if (hora_check2.after(horae_comida)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia2 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia2 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("55i tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso uju");
+
+                        }
+                        break;
+                    case 18:
+                        Date horae_cena = format.parse(hece);
+                        Date hora_check3 = format.parse(nop);
+                        long diferencia3 = hora_check3.getTime() - horae_cena.getTime();
+
+                        if (hora_check3.after(horae_cena)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia3 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia3 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("tiempo check");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso good");
+
+                        }
+                        break;
+                    case 19:
+                        horae_cena = format.parse(hece);
+                        hora_check3 = format.parse(nop);
+                        diferencia3 = hora_check3.getTime() - horae_cena.getTime();
+
+                        if (hora_check3.after(horae_cena)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia3 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia3 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("tiempo check");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso good 1");
+                            lbAlert.setText("Excelente");
+
+                        }
+                        break;
+                    case 21:
+                        Date horae_merienda = format.parse(hem);
+                        Date hora_check4 = format.parse(nop);
+                        long diferencia4 = hora_check4.getTime() - horae_merienda.getTime();
+
+                        if (hora_check4.after(horae_merienda)) {
+                            System.out.println("si hay atraso....");
+
+                            long mins_atraso = diferencia4 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia4 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println(" tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso yeha");
+
+                        }
+                        break;
+                    case 22:
+                        horae_merienda = format.parse(hem);
+                        hora_check4 = format.parse(nop);
+                        diferencia4 = hora_check4.getTime() - horae_merienda.getTime();
+
+                        if (hora_check4.after(horae_merienda)) {
+                            System.out.println("si hay atraso.....");
+
+                            long mins_atraso = diferencia4 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia4 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println(" tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso yeha");
+
+                        }
+                        break;
+                    case 23:
+                        horae_merienda = format.parse(hem);
+                        hora_check4 = format.parse(nop);
+                        diferencia4 = hora_check4.getTime() - horae_merienda.getTime();
+
+                        if (hora_check4.after(horae_merienda)) {
+                            System.out.println("si hay atraso.......");
+
+                            long mins_atraso = diferencia4 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia4 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println(" tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso yeha");
+
+                        }
+                        break;
+                }
+
+            }
+            con.DesconectarBasedeDatos();
+        } catch (ParseException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }
