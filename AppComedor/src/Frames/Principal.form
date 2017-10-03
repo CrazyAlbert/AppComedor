@@ -258,7 +258,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="52" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Alerta! Est&#xe1;s fuera de horario"/>
       </Properties>
     </Component>
   </SubComponents>
