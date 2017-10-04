@@ -30,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Eduardo Hernandez
  *
  */
-public class Principal extends javax.swing.JFrame implements Runnable {
+public class TiempoExtra extends javax.swing.JFrame implements Runnable {
 
     Conexion con = new Conexion();
     DefaultTableModel modelo = new DefaultTableModel();
@@ -44,7 +44,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public TiempoExtra() {
         initComponents();
         //this.setExtendedState(MAXIMIZED_BOTH);
         setTitle("Batesville-Chihuahua Comedor Planta 1");
@@ -350,9 +350,6 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         
-        TiempoExtra tiempoExtra = new TiempoExtra();
-        tiempoExtra.setVisible(true);
-        setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
@@ -397,167 +394,12 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     //Test de Switch
     public void mensaje() {
+        
         Calendar horaActual = Calendar.getInstance();
         Calendar minActual = Calendar.getInstance();
-
-        switch (horaActual.get(Calendar.HOUR_OF_DAY)) {
-            case 8://entra en el switch del desayuno
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 20:
-                        lbMsj.setText("bugeandose 20");
-                        break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 35:
-                        lbMsj.setText("testing bug");
-                        break;
-                    case 45:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                }
-            case 9://entra en el switch del desayuno
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 15:
-                        lbMsj.setText("bugeandose 20");
-                        break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado");
-                        break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                }
-                break;
-
-            case 12://entra a switch de comida
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
-                        break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 35:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                    case 45:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                }
-                break;
-
-            case 13://entra a switch de comida
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 15:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
-                        break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                }
-                break;
-
-            case 18: // extra switch de comida de tarde
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 15:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                    case 25:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 30:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
-                        break;
-                    case 40:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                }
-                break;
-
-            case 19:// extra switch de comida de tarde
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 10:
-                        lbMsj.setText("Acabado, Cajones, Small Parts");
-                        break;
-                    case 15:
-                        lbMsj.setText("bugeo minuto 15");
-                        break;
-                    case 25:
-                        lbMsj.setText("Small Parts, Tapas");
-                        break;
-                    case 30:
-                        lbMsj.setText("Administrativos, Intendencia");
-                        break;
-                }
-                break;
-
-            case 21: // extra switch de cena
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 55:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
-                }
-                break;
-            case 22:// extra switch de cena
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
-                        break;
-                    case 10:
-                        lbMsj.setText("Interiores,Planta 2, Pulido");
-                        break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado bug 20");
-                        break;
-                    case 30:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                    case 45:
-                        lbMsj.setText("Cajones, Small Parts");
-                        break;
-                    case 50:
-                        lbMsj.setText("Cajones, Small Parts, Tapas");
-                        break;
-                }
-                break;
-            case 23:// extra switch de cena 
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText(" Tapas, Administrativos, Intendencia");
-                        break;
-                    case 20:
-                        lbMsj.setText("");
-                }
-                break;
-        }
+        
+        int HA = horaActual.get(Calendar.HOUR_OF_DAY);
+        
     }
 
 /////////////////////////////////////////////////////////
@@ -605,7 +447,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             con.sentencia.execute(insert);
             con.DesconectarBasedeDatos();
         } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TiempoExtra.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
