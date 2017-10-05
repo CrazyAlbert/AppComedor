@@ -133,6 +133,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtid_empKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtid_empKeyTyped(evt);
+            }
         });
 
         lbNomb.setFont(new java.awt.Font("Calibri", 2, 50)); // NOI18N
@@ -367,6 +370,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             lbArea.setText(departamento);
             txtid_emp.setText(null);
 
+            tiempoExtraUsuario();
             insertar();
             //insertar a la base de datos
         }
@@ -384,18 +388,18 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-       ReporteOT P = new ReporteOT();
+        ReporteOT P = new ReporteOT();
         P.setVisible(true);
         setVisible(false);
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
         // TODO add your handling code here:
-       /* ReporteOT r = new ReporteOT();
+        /* ReporteOT r = new ReporteOT();
         r.setVisible(true);
         setVisible(false);*/
-                
+
     }//GEN-LAST:event_jMenuItem2MouseClicked
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -414,14 +418,23 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        
+
         ModeloExcel modeloE = new ModeloExcel();
         update vistaE = new update();
         ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
         vistaE.setVisible(true);
         vistaE.setLocationRelativeTo(null);
-        
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
+
+        int numero = 6;
+        if (txtid_emp.getText().length() >= numero) {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtid_empKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -468,6 +481,31 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
+            }
+        }
+    }
+
+    public void tiempoExtraUsuario() {
+        Calendar calendario = new GregorianCalendar();
+
+        int varHora, varMinuto;
+
+        varHora = calendario.get(Calendar.HOUR_OF_DAY);
+        varMinuto = calendario.get(Calendar.MINUTE);
+
+        if (varHora == 16) {
+            if (varMinuto >= 30 && varMinuto <= 50) {
+                lbAlert.setText("Tiempo Extra");
+            } else {
+                lbAlert.setText("");
+            }
+        }
+
+        if (varHora == 1) {
+            if (varMinuto >= 15 && varMinuto <= 35) {
+                lbAlert.setText("Tiempo Extra");
+            } else {
+                lbAlert.setText("");
             }
         }
     }
