@@ -114,7 +114,7 @@ public class ReporteGeneral extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
-        jLabel1.setText("Reporte Tiempor Extra");
+        jLabel1.setText("Reporte General");
 
         BtnExportar.setText("Exportar");
         BtnExportar.addActionListener(new java.awt.event.ActionListener() {

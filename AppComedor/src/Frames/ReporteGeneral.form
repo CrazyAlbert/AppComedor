@@ -68,7 +68,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="24" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Reporte Tiempor Extra"/>
+        <Property name="text" type="java.lang.String" value="Reporte General"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BtnExportar">
