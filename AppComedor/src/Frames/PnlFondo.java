@@ -16,17 +16,17 @@ import javax.swing.ImageIcon;
 public class PnlFondo extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlFondohfdjfsjtrsjytrwjtrwjn6ytfr
+     * Creates new form PnlFondo
      */
     public PnlFondo() {
         initComponents();
         this.setSize(1920,1010);
-    }
+    }               
     
     public void paintComponent(Graphics g) {
         
         Dimension tamanio = getSize();
-        ImageIcon imgFondo = new ImageIcon(getClass().getResource("/imagenes/test1.jpg"));
+        ImageIcon imgFondo = new ImageIcon(getClass().getResource("/imagenes/test21.jpg"));
         g.drawImage(imgFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
         setOpaque(false);
         super.paintComponent(g);

@@ -6,6 +6,8 @@
 package Frames;
 
 import Clases.Conexion;
+import Clases.ControladorExcel;
+import Clases.ModeloExcel;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -96,6 +98,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
@@ -162,8 +169,50 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         });
         jMenuBar1.add(menuInicio);
 
-        jMenu2.setText("Tiempo Extra");
+        jMenu2.setText("Reportes");
+
+        jMenuItem2.setText("Reporte Tiempo Extra");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setText("Reporte Fuera de Tiempo");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Reporte de Asistencia");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Actualizacion");
+
+        jMenuItem5.setText("Base de Datos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu1);
 
         jMenu3.setText("About");
         jMenuBar1.add(jMenu3);
@@ -333,13 +382,59 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     }//GEN-LAST:event_menuInicioMouseClicked
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+       ReporteOT P = new ReporteOT();
+        P.setVisible(true);
+        setVisible(false);
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
+        // TODO add your handling code here:
+       /* ReporteOT r = new ReporteOT();
+        r.setVisible(true);
+        setVisible(false);*/
+                
+    }//GEN-LAST:event_jMenuItem2MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        ReporteFT P = new ReporteFT();
+        P.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        ReporteGeneral P = new ReporteGeneral();
+        P.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        
+        ModeloExcel modeloE = new ModeloExcel();
+        update vistaE = new update();
+        ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
+        vistaE.setVisible(true);
+        vistaE.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JLabel labelEtiComida;
     private javax.swing.JLabel labelEtiDep;
     private javax.swing.JLabel labelEtiNom;
