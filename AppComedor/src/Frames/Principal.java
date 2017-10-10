@@ -347,7 +347,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                     String nomb = codigo;
 
                     String imageRoute;
-                    imageRoute = directory + "\\Empleados\\" + nomb + ".jpg";
+                    imageRoute = directory + "\\Empleados\\" + nomb + ".png";
                     ImageIcon ima = new ImageIcon(imageRoute);
                     ImageIcon icono = new ImageIcon(ima.getImage().getScaledInstance(
                             lbEmp.getWidth(),
