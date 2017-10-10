@@ -21,6 +21,52 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Tiempo Extra"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte Tiempo Extra"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte Fuera de Tiempo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte de Asistencia"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Actualizacion"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Base de Datos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fotos"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
@@ -61,7 +107,7 @@
                           <Group type="102" attributes="0">
                               <Component id="labelEtiNom" min="-2" pref="266" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelNomb" min="-2" pref="906" max="-2" attributes="0"/>
+                              <Component id="lbNomb" min="-2" pref="906" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="labelNumEmp" min="-2" max="-2" attributes="0"/>
@@ -71,12 +117,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelEtiDep" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="labelDepto" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbArea" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelEtiComida" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Component id="labelTipoCom" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbTComida" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lbAlert" alignment="0" min="-2" pref="1150" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -116,18 +162,18 @@
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelNomb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbNomb" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEtiNom" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelEtiDep" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelDepto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbArea" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelEtiComida" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTipoCom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbTComida" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="lbAlert" min="-2" pref="63" max="-2" attributes="0"/>
@@ -189,7 +235,7 @@
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtid_empKeyReleased"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelNomb">
+    <Component class="javax.swing.JLabel" name="lbNomb">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="50" style="2"/>
@@ -213,7 +259,7 @@
         <Property name="text" type="java.lang.String" value="&#xc1;rea: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelDepto">
+    <Component class="javax.swing.JLabel" name="lbArea">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="60" style="2"/>
@@ -229,7 +275,7 @@
         <Property name="text" type="java.lang.String" value="Tipo Comida:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelTipoCom">
+    <Component class="javax.swing.JLabel" name="lbTComida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="60" style="2"/>
@@ -258,7 +304,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="52" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Alerta! Est&#xe1;s fuera de horario"/>
       </Properties>
     </Component>
   </SubComponents>
