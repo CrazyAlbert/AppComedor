@@ -55,13 +55,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        //        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/fondo_Gris.jpg"));
-        //        JLabel fondo = new JLabel();
-        //        fondo.setIcon(uno);
-        //        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
-        //        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
-
-        //time
+        
         PnlFondo pnlFondo = new PnlFondo();
         this.add(pnlFondo, BorderLayout.CENTER);
         this.pack();
@@ -103,6 +97,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
@@ -214,6 +209,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             }
         });
         jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("Fotos");
+        jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
 
@@ -448,6 +446,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JLabel labelEtiComida;
     private javax.swing.JLabel labelEtiDep;
     private javax.swing.JLabel labelEtiNom;
