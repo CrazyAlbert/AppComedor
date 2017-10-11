@@ -55,16 +55,17 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test1.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
-        //time
-//        PnlFondo pnlFondo = new PnlFondo();
-//        this.add(pnlFondo, BorderLayout.CENTER);
-//        this.pack();
         h1 = new Thread(this);
         h1.start();
-        setLocationRelativeTo(null);//para centrar la ventana
+        //setLocationRelativeTo(null);//para centrar la ventana
         setVisible(true);
+
     }
 
     /**
@@ -129,6 +130,9 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         txtid_emp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtid_empKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtid_empKeyTyped(evt);
             }
         });
 
@@ -251,7 +255,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(155, 155, 155))))
         );
         layout.setVerticalGroup(
@@ -401,6 +405,21 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         vistaE.setVisible(true);
         vistaE.setLocationRelativeTo(null);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
+
+        int numero = 6;
+        char c = evt.getKeyChar();
+        if (txtid_emp.getText().length() >= numero) {
+            evt.consume();
+        }
+
+        if (!(Character.isDigit(c)|| (c == KeyEvent.VK_BACK_SPACE)|| (c == KeyEvent.VK_DELETE))) {
+            //getToolkit().beep();
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtid_empKeyTyped
 
     /**
      * @param args the command line arguments
@@ -578,8 +597,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
-    
-    public void insertar(){
+    public void insertar() {
         //Insertar 
         String insert = "INSERT INTO reportediario VALUES ('" + codigo + ",'"
                 + ",'" + lbNomb.getText() + "'"
@@ -823,7 +841,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
 
                         }
                         break;
-                    
+
                 }
 
             }
@@ -834,6 +852,6 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         } catch (SQLException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-    
+    }
+
 }

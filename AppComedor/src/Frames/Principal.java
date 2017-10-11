@@ -55,14 +55,26 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        
-//        PnlFondo pnlFondo = new PnlFondo();
-//        this.add(pnlFondo, BorderLayout.CENTER);
-        //this.pack();
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test1.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+
         h1 = new Thread(this);
         h1.start();
-        setLocationRelativeTo(null);//para centrar la ventana
+        //setLocationRelativeTo(null);//para centrar la ventana
         setVisible(true);
+
+        /*
+        setIconImage(new ImageIcon(getClass().getResource("/imagen/nature.png")).getImage());
+        ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagen/Fondo16.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+         */
     }
 
     /**
@@ -428,7 +440,12 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
 
         int numero = 6;
+        char c = evt.getKeyChar();
         if (txtid_emp.getText().length() >= numero) {
+            evt.consume();
+        }
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+            //getToolkit().beep();
             evt.consume();
         }
 

@@ -141,7 +141,7 @@
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="lbHora" min="-2" pref="312" max="-2" attributes="0"/>
+                      <Component id="lbHora" min="-2" pref="354" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -233,6 +233,7 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtid_empActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtid_empKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtid_empKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbNomb">

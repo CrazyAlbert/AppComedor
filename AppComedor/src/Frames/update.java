@@ -41,10 +41,13 @@ public class update extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test14.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         
-        PnlFondo pnlFondo = new PnlFondo();
-        this.add(pnlFondo, BorderLayout.CENTER);
-        this.pack();
+        
         TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
         TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
         
