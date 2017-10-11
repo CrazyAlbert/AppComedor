@@ -141,7 +141,7 @@
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="lbHora" min="-2" pref="312" max="-2" attributes="0"/>
+                      <Component id="lbHora" min="-2" pref="354" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
               </Group>

@@ -46,10 +46,12 @@ public class ReporteOT extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        
-        PnlFondo pnlFondo = new PnlFondo();
-        this.add(pnlFondo, BorderLayout.CENTER);
-        this.pack();
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test14.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+       
         TableExpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
         TableExpo.getTableHeader().setBackground(Color.DARK_GRAY);
         mos_reg("");

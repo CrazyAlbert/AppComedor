@@ -55,16 +55,17 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        
-
-        //time
-        PnlFondo pnlFondo = new PnlFondo();
-        this.add(pnlFondo, BorderLayout.CENTER);
-        this.pack();
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test14.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+       
         h1 = new Thread(this);
         h1.start();
-        setLocationRelativeTo(null);//para centrar la ventana
+        //setLocationRelativeTo(null);//para centrar la ventana
         setVisible(true);
+        
     }
 
     /**
@@ -251,7 +252,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(155, 155, 155))))
         );
         layout.setVerticalGroup(
