@@ -56,9 +56,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
         
-        PnlFondo pnlFondo = new PnlFondo();
-        this.add(pnlFondo, BorderLayout.CENTER);
-        this.pack();
+//        PnlFondo pnlFondo = new PnlFondo();
+//        this.add(pnlFondo, BorderLayout.CENTER);
+        //this.pack();
         h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);//para centrar la ventana

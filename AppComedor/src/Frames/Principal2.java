@@ -58,9 +58,9 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         
 
         //time
-        PnlFondo pnlFondo = new PnlFondo();
-        this.add(pnlFondo, BorderLayout.CENTER);
-        this.pack();
+//        PnlFondo pnlFondo = new PnlFondo();
+//        this.add(pnlFondo, BorderLayout.CENTER);
+//        this.pack();
         h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);//para centrar la ventana
