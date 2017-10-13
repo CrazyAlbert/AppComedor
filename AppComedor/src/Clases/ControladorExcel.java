@@ -39,22 +39,23 @@ public class ControladorExcel implements ActionListener{
     }
     
     @Override
+    
     public void actionPerformed(ActionEvent e) {
-        contAccion++;
-        if(contAccion==1)AgregarFiltro();
-        
-        if(e.getSource() == vistaE.btnImportar){
-            if(selecArchivo.showDialog(null, "Seleccionar archivo")==JFileChooser.APPROVE_OPTION){
-                archivo=selecArchivo.getSelectedFile();
-                if(archivo.getName().endsWith("xls") || archivo.getName().endsWith("xlsx")){
-                    JOptionPane.showMessageDialog(null, 
-                            modeloE.Importar(archivo, vistaE.TableImpo) + "\n Formato ."+ archivo.getName().substring(archivo.getName().lastIndexOf(".")+1), 
-                            "IMPORTAR EXCEL", JOptionPane.INFORMATION_MESSAGE);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Elija un formato valido.");
-                }
-            }
-        }
+//        contAccion++;
+//        if(contAccion==1)AgregarFiltro();
+//        
+//        if(e.getSource() == vistaE.btnImportar){
+//            if(selecArchivo.showDialog(null, "Seleccionar archivo")==JFileChooser.APPROVE_OPTION){
+//                archivo=selecArchivo.getSelectedFile();
+//                if(archivo.getName().endsWith("xls") || archivo.getName().endsWith("xlsx")){
+//                    JOptionPane.showMessageDialog(null, 
+//                            modeloE.Importar(archivo, vistaE.TableImpo) + "\n Formato ."+ archivo.getName().substring(archivo.getName().lastIndexOf(".")+1), 
+//                            "IMPORTAR EXCEL", JOptionPane.INFORMATION_MESSAGE);
+//                }else{
+//                    JOptionPane.showMessageDialog(null, "Elija un formato valido.");
+//                }
+//            }
+//        }
         
         /*if(e.getSource() == vistaE.btnExportar){
             if(selecArchivo.showDialog(null, "Exportar")==JFileChooser.APPROVE_OPTION){
@@ -67,7 +68,7 @@ public class ControladorExcel implements ActionListener{
             }
         }*/
     }
-    
+     
 }
 
     

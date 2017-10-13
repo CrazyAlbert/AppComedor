@@ -215,6 +215,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jMenu1.setText("Actualizacion");
 
         jMenuItem5.setText("Base de Datos");
+        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem5MouseClicked(evt);
+            }
+        });
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -429,12 +434,14 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
 
-        ModeloExcel modeloE = new ModeloExcel();
-        update vistaE = new update();
-        ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
-        vistaE.setVisible(true);
-        vistaE.setLocationRelativeTo(null);
-
+//        ModeloExcel modeloE = new ModeloExcel();
+//        update vistaE = new update();
+//        ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
+//        vistaE.setVisible(true);
+//        vistaE.setLocationRelativeTo(null);
+        update importar = new update();
+        importar.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
@@ -450,6 +457,10 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
 
     }//GEN-LAST:event_txtid_empKeyTyped
+
+    private void jMenuItem5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MouseClicked
+
+    }//GEN-LAST:event_jMenuItem5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

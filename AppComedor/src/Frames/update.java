@@ -6,6 +6,7 @@
 package Frames;
 
 import Clases.Conexion;
+import Clases.DropExcel;
 import java.awt.BorderLayout;
 //import Frames.MenuPrincipal;
 //import Frames.Menuimpo;
@@ -34,8 +35,12 @@ public class update extends javax.swing.JFrame {
     /**
      * Creates new form Actualizacion
      */
+    
+    DropExcel de;
+    
     public update() {
         initComponents();
+        TableImpo.setRowHeight(40);
         setTitle("Batesville-Chihuahua Actualizacion"); // Titulo
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
@@ -46,10 +51,13 @@ public class update extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+        de = new DropExcel(TableImpo);
         
+//        TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
+//        TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
         
-        TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
-        TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
+//        TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
+//        TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
         
     }
 
@@ -66,10 +74,9 @@ public class update extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         btnImportar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TableImpo = new javax.swing.JTable();
         btnRegresar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableImpo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,17 +90,6 @@ public class update extends javax.swing.JFrame {
             }
         });
 
-        TableImpo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        TableImpo.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(TableImpo);
-
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,32 +97,65 @@ public class update extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+        TableImpo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        TableImpo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(TableImpo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(1069, Short.MAX_VALUE))))
+                        .addGap(646, 646, 646)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(32, 32, 32)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1444, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(25, 261, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,53 +163,17 @@ public class update extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnImportar)
-                        .addGap(68, 68, 68)
-                        .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegresar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImportar)
+                    .addComponent(btnRegresar))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-         if (TableImpo.getRowCount() > 0) {
-            for (int i = 0; i < TableImpo.getRowCount(); i++) {
-                String insert = "INSERT INTO usuarios Values("
-                               + obtenercontenido(i, 0)
-                        + ",'" + obtenercontenido(i, 1) + "'"
-                        + ",'" + obtenercontenido(i, 2) + "'"
-                        + ",'" + obtenercontenido(i, 3) + "'"
-                        + ",'" + obtenercontenido(i, 4) + "'"
-                        + ",'" + obtenercontenido(i, 5) + "'"
-                        + ",'" + obtenercontenido(i, 6) + "'"
-                        + ",'" + obtenercontenido(i, 7) + "'";
-                       
-                
-                System.out.println(insert);
-                try {
-                    con.ConectarBasedeDatos();
-                    con.sentencia.execute(insert);
-                    con.DesconectarBasedeDatos();
-                } catch (SQLException ex) {
-                    Logger.getLogger(update.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            JOptionPane.showMessageDialog(this, "Datos Guardados con Exito");
-        } else {
-            JOptionPane.showMessageDialog(this, " El reporte se encuntra vacio");
-        }
-         ((DefaultTableModel) TableImpo.getModel()).setRowCount(0);
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
+/*    */
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImportarActionPerformed
@@ -195,14 +188,14 @@ public class update extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTable TableImpo;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JTable TableImpo;
     public javax.swing.JButton btnImportar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
+    /*
     private String obtenercontenido(int fila, int columna) {
         Object palabraOB = TableImpo.getValueAt(fila, columna);
         String palabra = "";
@@ -210,6 +203,6 @@ public class update extends javax.swing.JFrame {
             palabra = palabraOB.toString();
         }
         return palabra;
-    }
+    }*/
 
 }
