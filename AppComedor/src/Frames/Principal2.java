@@ -55,7 +55,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test1.jpg"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test21.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
@@ -92,6 +92,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         jLabel11 = new javax.swing.JLabel();
         lbSaludo = new javax.swing.JLabel();
         lbAlert = new javax.swing.JLabel();
+        labelContador = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio2 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -128,6 +129,9 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
             }
         });
         txtid_emp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtid_empKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtid_empKeyReleased(evt);
             }
@@ -161,6 +165,9 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         lbSaludo.setText("Buen Dia");
 
         lbAlert.setFont(new java.awt.Font("Calibri", 3, 52)); // NOI18N
+
+        labelContador.setFont(new java.awt.Font("Arial", 1, 72)); // NOI18N
+        labelContador.setText("0");
 
         menuInicio2.setText("Inicio");
         menuInicio2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,11 +259,12 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                    .addComponent(labelContador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,15 +292,20 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                         .addGap(36, 36, 36)
                         .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addComponent(jLabel11)
-                        .addGap(33, 33, 33)
-                        .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel11))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
                         .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelContador))))
         );
 
         pack();
@@ -342,7 +355,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                     String nomb = codigo;
 
                     String imageRoute;
-                    imageRoute = directory + "\\Empleados\\" + nomb + ".jpg";
+                    imageRoute = directory + "\\Empleados\\" + nomb + ".png";
                     ImageIcon ima = new ImageIcon(imageRoute);
                     ImageIcon icono = new ImageIcon(ima.getImage().getScaledInstance(
                             lbEmp.getWidth(),
@@ -414,12 +427,27 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
             evt.consume();
         }
 
-        if (!(Character.isDigit(c)|| (c == KeyEvent.VK_BACK_SPACE)|| (c == KeyEvent.VK_DELETE))) {
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
             //getToolkit().beep();
             evt.consume();
         }
 
     }//GEN-LAST:event_txtid_empKeyTyped
+    int cont = 1;
+    private void txtid_empKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyPressed
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            contador();
+        }
+    }//GEN-LAST:event_txtid_empKeyPressed
+
+    public void contador() {
+        for (int i = 0; i < 1; i++) {
+            String cadena = Integer.toString(cont);
+            labelContador.setText(cadena);
+        }
+        cont++;
+    }
 
     /**
      * @param args the command line arguments
@@ -469,19 +497,19 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
             case 8://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Interiores");
+                        lbMsj.setText("Flat top Interiores");
                         break;
                     case 10:
-                        lbMsj.setText("Interiores, Interiores AWC, Retornos");
+                        lbMsj.setText("Flat top Interiores, Interiores AWC, Retornos");
                         break;
                     case 15:
                         lbMsj.setText("Interiores AWC, Retornos, Acabado");
                         break;
                     case 30:
-                        lbMsj.setText("Acabado, FT WW");
+                        lbMsj.setText("Acabado, Flat Top WW");
                         break;
                     case 40:
-                        lbMsj.setText("FT WW, AWC WW");
+                        lbMsj.setText("Flat Top WW, AWC WW");
                         break;
                     case 50:
                         lbMsj.setText("AWC WW, RTA");
@@ -492,17 +520,14 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
             case 9://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Mantenimiento, Materiales, Aduanas");
+                        lbMsj.setText("RTA, Paneles Prep B3");
+                        break;
+                    case 30:
+                        lbMsj.setText("Mantenimiento, Materiales, Administrativos");
                         break;
                 }
                 break;
-            case 10://entra en el switch del desayuno
-                switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Appled Molding");
-                        break;
-                }
-                break;
+
 
             case 12://entra a switch de comida 
                 switch (minActual.get(Calendar.MINUTE)) {
@@ -581,6 +606,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JLabel labelContador;
     private javax.swing.JLabel labelEtiComida;
     private javax.swing.JLabel labelEtiDep;
     private javax.swing.JLabel labelEtiNom;

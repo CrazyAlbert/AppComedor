@@ -55,7 +55,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test1.jpg"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test15.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
