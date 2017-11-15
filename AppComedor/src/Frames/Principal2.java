@@ -167,7 +167,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         lbAlert.setFont(new java.awt.Font("Calibri", 3, 52)); // NOI18N
 
         labelContador.setFont(new java.awt.Font("Arial", 1, 72)); // NOI18N
-        labelContador.setText("0");
+        labelContador.setText("000");
 
         menuInicio2.setText("Inicio");
         menuInicio2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,9 +250,9 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                                 .addComponent(labelEtiComida)
                                 .addGap(75, 75, 75)
                                 .addComponent(lbTComida))
-                            .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(500, 500, 500)
                         .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -264,7 +264,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
-                    .addComponent(labelContador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelContador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,7 +416,8 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         update vistaE = new update();
         ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
         vistaE.setVisible(true);
-        vistaE.setLocationRelativeTo(null);
+        setVisible(false);
+        //vistaE.setLocationRelativeTo(null);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
@@ -528,26 +529,22 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
                 }
                 break;
 
-
             case 12://entra a switch de comida 
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Interiores");
+                        lbMsj.setText("Flat top Interiores");
                         break;
                     case 10:
-                        lbMsj.setText("Interiores, Interiores AWC, Retornos");
+                        lbMsj.setText("Flat top Interiores, Interiores AWC, Retornos");
                         break;
                     case 15:
-                        lbMsj.setText("Interiores AWC, Retornos, Acabado");
+                        lbMsj.setText("Flat top Interiores, Interiores AWC, Retornos, Acabado");
                         break;
                     case 30:
-                        lbMsj.setText("Acabado, FT WW");
+                        lbMsj.setText("AWC Interiores, Retornos, Acabado, Flat Top WW");
                         break;
                     case 40:
-                        lbMsj.setText("FT WW, AWC WW");
-                        break;
-                    case 50:
-                        lbMsj.setText("AWC WW, RTA");
+                        lbMsj.setText("Acabado, Flat Top WW, AWC WW");
                         break;
                 }
                 break;
@@ -555,10 +552,13 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
             case 13://entra a switch de comida 
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText("Appled Molding");
+                        lbMsj.setText("AWC WW, RTA");
                         break;
                     case 10:
-                        lbMsj.setText("Mantenimiento,Materiales, Aduanas");
+                        lbMsj.setText("RTA, Mantenimiento, Materiales, Administrativos");
+                        break;
+                    case 20:
+                        lbMsj.setText("Mantenimiento, Materiales, Administrativos, Paneles Prep B3");
                         break;
                 }
                 break;

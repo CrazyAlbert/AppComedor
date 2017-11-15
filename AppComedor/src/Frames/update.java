@@ -13,6 +13,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,39 +31,36 @@ import javax.swing.table.DefaultTableModel;
 public class update extends javax.swing.JFrame {
 
     Conexion con = new Conexion();
-   // DefaultTableModel modelo = new DefaultTableModel();
+    // DefaultTableModel modelo = new DefaultTableModel();
     String Ubicacion;
     /**
      * Creates new form Actualizacion
      */
-    
+
     DropExcel de;
-    
+
     public update() {
         initComponents();
         TableImpo.setRowHeight(40);
         setTitle("Batesville-Chihuahua Actualizacion"); // Titulo
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test14.jpg"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test21.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         de = new DropExcel(TableImpo);
-        
+
 //        TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
 //        TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
-        
 //        TableImpo.getTableHeader().setFont(new Font("Times New Roman", 1, 16));
 //        TableImpo.getTableHeader().setBackground(Color.DARK_GRAY);
-        
     }
 
-    
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,13 +81,20 @@ public class update extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
         jLabel2.setText("Actualizar Base de Datos");
 
+        btnImportar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnImportar.setText("Importar");
+        btnImportar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnImportarMouseClicked(evt);
+            }
+        });
         btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImportarActionPerformed(evt);
             }
         });
 
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,35 +105,6 @@ public class update extends javax.swing.JFrame {
         TableImpo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         TableImpo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -146,16 +122,16 @@ public class update extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(646, 646, 646)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1444, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1444, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 261, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(18, 18, 18)
+                .addComponent(btnImportar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,12 +139,14 @@ public class update extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(195, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImportar)
-                    .addComponent(btnRegresar))
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -185,6 +163,30 @@ public class update extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    private void btnImportarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportarMouseClicked
+        //Ciclo para insertar los datos de la tabla en la base de datos
+        for (int i = 0; i < TableImpo.getRowCount(); i++) {
+
+            String sql = "insert into usuarios values ("
+                    + TableImpo.getValueAt(i, 0) + ",'"
+                    + TableImpo.getValueAt(i, 1) + "','"
+                    + TableImpo.getValueAt(i, 2) + "','"
+                    + TableImpo.getValueAt(i, 3) + "','"
+                    + TableImpo.getValueAt(i, 4) + "','"
+                    + TableImpo.getValueAt(i, 5) + "','"
+                    + TableImpo.getValueAt(i, 6) + "','"
+                    + TableImpo.getValueAt(i, 7) + "')";
+            
+            try {
+                con.ConectarBasedeDatos();
+                con.sentencia.execute(sql);
+                con.DesconectarBasedeDatos();
+                System.out.println("Datos agregados correctamente");
+            } catch (Exception e) {
+                System.out.println("Ocurrio un error al insertar los datos");
+            }
+        }
+    }//GEN-LAST:event_btnImportarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -204,5 +206,4 @@ public class update extends javax.swing.JFrame {
         }
         return palabra;
     }*/
-
 }
