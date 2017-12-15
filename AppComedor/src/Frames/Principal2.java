@@ -10,6 +10,7 @@ import Clases.ControladorExcel;
 import Clases.ModeloExcel;
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -53,6 +54,7 @@ public class Principal2 extends javax.swing.JFrame implements Runnable {
         setTitle("Batesville-Chihuahua Comedor Planta 2");
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/icon.png")).getImage());
         ((JPanel) getContentPane()).setOpaque(false); //imagen fondo
         ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/test25.jpg"));

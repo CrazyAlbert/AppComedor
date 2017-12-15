@@ -101,6 +101,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jLabel11 = new javax.swing.JLabel();
         lbSaludo = new javax.swing.JLabel();
         lbAlert = new javax.swing.JLabel();
+        lblCont = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -137,6 +138,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             }
         });
         txtid_emp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtid_empKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtid_empKeyReleased(evt);
             }
@@ -170,6 +174,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lbSaludo.setText("Buen Dia");
 
         lbAlert.setFont(new java.awt.Font("Calibri", 3, 52)); // NOI18N
+
+        lblCont.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblCont.setText("000");
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -275,13 +282,26 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120))))
+                        .addGap(120, 120, 120))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbSaludo)
                         .addGap(61, 61, 61)
@@ -305,12 +325,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel11)
                         .addGap(33, 33, 33)
-                        .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -461,7 +476,21 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private void jMenuItem5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MouseClicked
 
     }//GEN-LAST:event_jMenuItem5MouseClicked
+    int cont = 1;
+    private void txtid_empKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            counter();
+        }
 
+    }//GEN-LAST:event_txtid_empKeyPressed
+
+    public void counter() {
+        for (int i = 0; i < 1; i++) {
+            String cadena = Integer.toString(cont);
+            lblCont.setText(cadena);
+        }
+        cont++;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
@@ -487,6 +516,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel lbNomb;
     private javax.swing.JLabel lbSaludo;
     private javax.swing.JLabel lbTComida;
+    private javax.swing.JLabel lblCont;
     private javax.swing.JMenu menuInicio;
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
