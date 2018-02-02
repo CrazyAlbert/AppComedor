@@ -208,6 +208,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setText("Fotos");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
@@ -421,6 +426,11 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        //abrir explorador
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
@@ -582,7 +592,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                     case 15:
                         lbMsj.setText("Herrajes, Interiores");
                         break;
-                    case 25:
+                    case 20:
                         lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
                         break;
                     case 30:
@@ -592,6 +602,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
                         break;
                     case 50:
+                        lbMsj.setText("Pulido, Acabado");
+                        break;
+                    case 55:
                         lbMsj.setText("Pulido, Acabado, Cajones");
                         break;
                 }
@@ -600,15 +613,12 @@ public class Principal extends javax.swing.JFrame implements Runnable {
             case 19:// extra switch de comida de tarde
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 10:
-                        lbMsj.setText("Acabado, Cajones, Small Parts");
-                        break;
-                    case 15:
-                        lbMsj.setText("bugeo minuto 15");
-                        break;
-                    case 25:
-                        lbMsj.setText("Small Parts, Tapas");
+                        lbMsj.setText("Acabado, Cajones, Tapas");
                         break;
                     case 30:
+                        lbMsj.setText("Cajones, Tapas, Small Parts");
+                        break;
+                    case 35:
                         lbMsj.setText("Administrativos, Intendencia");
                         break;
                 }
@@ -623,33 +633,39 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                 break;
             case 22:// extra switch de cena
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 00:
+                        lbMsj.setText("Herrajes, Interiores");
                         break;
                     case 10:
-                        lbMsj.setText("Interiores,Planta 2, Pulido");
+                        lbMsj.setText("Interiores, Planta 2");
                         break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado bug 20");
+                    case 15:
+                        lbMsj.setText("Interiores, Planta 2, Pulido");
                         break;
-                    case 30:
+                    case 25:
+                        lbMsj.setText("Planta 2, Pulido, Acabado");
+                        break;
+                    case 35:
                         lbMsj.setText("Pulido, Acabado, Cajones");
                         break;
-                    case 45:
-                        lbMsj.setText("Cajones, Small Parts");
-                        break;
                     case 50:
-                        lbMsj.setText("Cajones, Small Parts, Tapas");
+                        lbMsj.setText("Cajones, Tapas");
                         break;
+                    
                 }
                 break;
             case 23:// extra switch de cena 
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 00:
-                        lbMsj.setText(" Tapas, Administrativos, Intendencia");
+                        lbMsj.setText(" Tapas");
                         break;
-                    case 20:
-                        lbMsj.setText("");
+                    case 10:
+                        lbMsj.setText("Tapas, SmallParts");
+                        break;
+                    case 15:
+                        lbMsj.setText("SmallParts, Administrativos, Intendencia");
+                        break;
+                    
                 }
                 break;
         }
