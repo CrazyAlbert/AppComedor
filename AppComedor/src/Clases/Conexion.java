@@ -29,7 +29,7 @@ public class Conexion {
         try {
             final String Controlador = "com.mysql.jdbc.Driver";
             Class.forName(Controlador);
-            final String url_bd = "jdbc:mysql://localhost:3306/db_comedor";
+            final String url_bd = "jdbc:mysql://localhost/db_comedor";
             conexion = DriverManager.getConnection(url_bd, "root", "root");
             sentencia = conexion.createStatement();
         } catch (ClassNotFoundException | SQLException ex) {

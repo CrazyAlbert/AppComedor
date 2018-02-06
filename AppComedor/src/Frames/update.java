@@ -199,6 +199,7 @@ public class update extends javax.swing.JFrame {
                 con.sentencia.execute(sql);
                 con.DesconectarBasedeDatos();
                 System.out.println("Datos agregados correctamente");
+                JOptionPane.showMessageDialog(null, "Los datos fueron agregados exitosamente");
             } catch (Exception e) {
                 System.out.println("Ocurrio un error al insertar los datos");
             }

@@ -175,7 +175,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
         lbAlert.setFont(new java.awt.Font("Calibri", 3, 52)); // NOI18N
 
-        lblCont.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblCont.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         lblCont.setText("000");
 
         menuInicio.setText("Inicio");
@@ -271,7 +271,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                                 .addComponent(lbTComida))
                             .addComponent(lbAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(500, 500, 500)
                         .addComponent(lbSaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -284,24 +284,21 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(lblCont)
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(lbEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(78, 78, 78)
+                        .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCont))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbSaludo)
                         .addGap(61, 61, 61)
@@ -597,39 +594,37 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                     case 00:
                         lbMsj.setText("Herrajes, Interiores");
                         break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 10:
+                        lbMsj.setText("Herrajes, Interiores, Materiales");
                         break;
                     case 20:
-                        lbMsj.setText("bugeandose 20");
+                        lbMsj.setText("Herrajes, Interiores, Materiales, Pulido");
                         break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 35:
-                        lbMsj.setText("testing bug");
-                        break;
-                    case 45:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 40:
+                        lbMsj.setText("Acabado");
                         break;
                 }
+                break;
             case 9://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
                     case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                        lbMsj.setText("Cajones");
                         break;
                     case 15:
-                        lbMsj.setText("bugeandose 20");
+                        lbMsj.setText("Cajones, Small Parts, Intendencia, Molduradoras, Residuos peligrosos, Calidad, RF5, Tunel");
                         break;
-                    case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado");
+                    case 25:
+                        lbMsj.setText("Small parts, Intendencia, Molduradoras, Residuos Peligrosos, Calidad, RF5, Tunel, Tapas");
+                        break;
+                    case 35:
+                        lbMsj.setText("Tapas solidas");
+                        break;
+                    case 40:
+                        lbMsj.setText("Tapas solidas");
                         break;
                     case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
+                        lbMsj.setText("Administrativos, Intendencia, Guardias, Mantenimiento");
+                        break;    
                 }
                 break;
 
@@ -638,38 +633,38 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                     case 00:
                         lbMsj.setText("Herrajes, Interiores");
                         break;
-                    case 05:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                    case 10:
+                        lbMsj.setText("Herrajes, Interiores, Materiales");
                         break;
                     case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                        lbMsj.setText("Herrajes, Interiores, Materiales, Pulido");
                         break;
-                    case 25:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
-                        break;
-                    case 35:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
-                    case 45:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                    case 40:
+                        lbMsj.setText("Aacabado");
                         break;
                 }
                 break;
 
             case 13://entra a switch de comida
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
+                    case 05:
+                        lbMsj.setText("Cajones");
                         break;
                     case 15:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                        lbMsj.setText("Cajones, Small Parts, Intendencia, Molduradoras, Residuos peligrosos, Calidad, RF5, Tunel");
                         break;
-                    case 20:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                    case 25:
+                        lbMsj.setText("Small parts, Intendencia, Molduradoras, Residuos Peligrosos, Calidad, RF5, Tunel, Tapas");
+                        break;
+                    case 35:
+                        lbMsj.setText("Tapas solidas");
+                        break;
+                    case 40:
+                        lbMsj.setText("Tapas solidas");
                         break;
                     case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
-                        break;
+                        lbMsj.setText("Administrativos, Intendencia, Guardias, Mantenimiento");
+                        break;    
                 }
                 break;
 
