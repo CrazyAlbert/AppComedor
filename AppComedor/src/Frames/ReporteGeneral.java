@@ -70,7 +70,7 @@ public class ReporteGeneral extends javax.swing.JFrame {
         
         TableExpo.setModel(modelo);
         String select 
-                = "SELECT *  FROM reportediario";
+                = "SELECT *  FROM reportediario order by fecha";
         String[] datos = new String[7];
         int[] anchos = {130, 100, 100, 100, 100, 100, 100 };
         try {

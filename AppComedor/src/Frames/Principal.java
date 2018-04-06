@@ -103,14 +103,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lbAlert = new javax.swing.JLabel();
         lblCont = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuInicio = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
@@ -178,68 +171,25 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         lblCont.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         lblCont.setText("000");
 
-        menuInicio.setText("Inicio");
-        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu1.setText("Refrescar");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuInicioMouseClicked(evt);
+                jMenu1MouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuInicio);
-
-        jMenu2.setText("Reportes");
-
-        jMenuItem2.setText("Reporte Tiempo Extra");
-        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem2MouseClicked(evt);
-            }
-        });
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setText("Reporte Fuera de Tiempo");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Reporte de Asistencia");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu1.setText("Actualizacion");
-
-        jMenuItem5.setText("Base de Datos");
-        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem5MouseClicked(evt);
-            }
-        });
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem6.setText("Fotos");
-        jMenu1.add(jMenuItem6);
-
         jMenuBar1.add(jMenu1);
 
         jMenu3.setText("About");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -404,58 +354,6 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
     }//GEN-LAST:event_txtid_empKeyReleased
 
-    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-
-        Inicio i = new Inicio();
-        i.setVisible(true);
-        setVisible(false);
-
-
-    }//GEN-LAST:event_menuInicioMouseClicked
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        ReporteOT P = new ReporteOT();
-        P.setVisible(true);
-        setVisible(false);
-
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
-        // TODO add your handling code here:
-        /* ReporteOT r = new ReporteOT();
-        r.setVisible(true);
-        setVisible(false);*/
-
-    }//GEN-LAST:event_jMenuItem2MouseClicked
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        ReporteFT P = new ReporteFT();
-        P.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        ReporteGeneral P = new ReporteGeneral();
-        P.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-
-//        ModeloExcel modeloE = new ModeloExcel();
-//        update vistaE = new update();
-//        ControladorExcel contraControladorExcel = new ControladorExcel(vistaE, modeloE);
-//        vistaE.setVisible(true);
-//        vistaE.setLocationRelativeTo(null);
-        update importar = new update();
-        importar.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     private void txtid_empKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyTyped
 
         int numero = 6;
@@ -469,10 +367,6 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
 
     }//GEN-LAST:event_txtid_empKeyTyped
-
-    private void jMenuItem5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MouseClicked
-
-    }//GEN-LAST:event_jMenuItem5MouseClicked
     int cont = 1;
     private void txtid_empKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtid_empKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -480,6 +374,23 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
 
     }//GEN-LAST:event_txtid_empKeyPressed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        AcercaDe acerca = new AcercaDe();
+        acerca.setVisible(true);
+
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        AcercaDe acerca = new AcercaDe();
+        acerca.setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        Principal principalPlantaUno = new Principal();
+        principalPlantaUno.repaint();
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     public void counter() {
         for (int i = 0; i < 1; i++) {
@@ -492,15 +403,9 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JLabel labelEtiComida;
     private javax.swing.JLabel labelEtiDep;
     private javax.swing.JLabel labelEtiNom;
@@ -514,7 +419,6 @@ public class Principal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel lbSaludo;
     private javax.swing.JLabel lbTComida;
     private javax.swing.JLabel lblCont;
-    private javax.swing.JMenu menuInicio;
     private javax.swing.JTextField txtid_emp;
     // End of variables declaration//GEN-END:variables
 
@@ -589,82 +493,116 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         Calendar minActual = Calendar.getInstance();
 
         switch (horaActual.get(Calendar.HOUR_OF_DAY)) {
-            case 8://entra en el switch del desayuno
+            case 7://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
+                    case 30:
                         lbMsj.setText("Herrajes, Interiores");
                         break;
-                    case 10:
+                    case 40:
                         lbMsj.setText("Herrajes, Interiores, Materiales");
                         break;
-                    case 20:
+                    case 55:
                         lbMsj.setText("Herrajes, Interiores, Materiales, Pulido");
-                        break;
-                    case 40:
-                        lbMsj.setText("Acabado");
                         break;
                 }
                 break;
+            case 8://entra en el switch del desayuno
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 10:
+                        lbMsj.setText("Acabado, Pulido");
+                        break;
+                    case 25:
+                        lbMsj.setText("Cajones Principal, Acabado");
+                        break;
+                    case 30:
+                        lbMsj.setText("Cajones Flexible, Cajones Principal");
+                        break;
+                    case 35:
+                        lbMsj.setText("Cajones Prominence,Cajones Flexible, Cajones Principal");
+                        break;
+                    case 40:
+                        lbMsj.setText("Tapas Solidas, Cajones");
+                        break;
+                }
+                break;
+
             case 9://entra en el switch del desayuno
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 05:
-                        lbMsj.setText("Cajones");
+                        lbMsj.setText("Residuos Peligrosos");
+                        break;
+                    case 10:
+                        lbMsj.setText("Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
                     case 15:
-                        lbMsj.setText("Cajones, Small Parts, Intendencia, Molduradoras, Residuos peligrosos, Calidad, RF5, Tunel");
+                        lbMsj.setText("Small Parts, Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
-                    case 25:
-                        lbMsj.setText("Small parts, Intendencia, Molduradoras, Residuos Peligrosos, Calidad, RF5, Tunel, Tapas");
+                    case 20:
+                        lbMsj.setText("Molduradoras, Small Parts, Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
-                    case 35:
-                        lbMsj.setText("Tapas solidas");
+                    case 30:
+                        lbMsj.setText("Administrativos, Molduradoras, Small Parts");
                         break;
                     case 40:
-                        lbMsj.setText("Tapas solidas");
+                        lbMsj.setText("Intendencia, Mantenimiento, Administrativos");
                         break;
-                    case 50:
-                        lbMsj.setText("Administrativos, Intendencia, Guardias, Mantenimiento");
-                        break;    
+
+                }
+                break;
+
+            case 11://entra a switch de comida
+                switch (minActual.get(Calendar.MINUTE)) {
+                    case 30:
+                        lbMsj.setText("Herrajes, Interiores");
+                        break;
+                    case 40:
+                        lbMsj.setText("Herrajes, Interiores, Materiales");
+                        break;
+                    case 55:
+                        lbMsj.setText("Herrajes, Interiores, Materiales, Pulido");
+                        break;
                 }
                 break;
 
             case 12://entra a switch de comida
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText("Herrajes, Interiores");
-                        break;
                     case 10:
-                        lbMsj.setText("Herrajes, Interiores, Materiales");
+                        lbMsj.setText("Acabado, Pulido");
                         break;
-                    case 20:
-                        lbMsj.setText("Herrajes, Interiores, Materiales, Pulido");
+                    case 25:
+                        lbMsj.setText("Cajones Principal, Acabado");
+                        break;
+                    case 30:
+                        lbMsj.setText("Cajones Flexible, Cajones Principal");
+                        break;
+                    case 35:
+                        lbMsj.setText("Cajones Prominence,Cajones Flexible, Cajones Principal");
                         break;
                     case 40:
-                        lbMsj.setText("Aacabado");
+                        lbMsj.setText("Tapas Solidas, Cajones");
                         break;
                 }
                 break;
-
             case 13://entra a switch de comida
                 switch (minActual.get(Calendar.MINUTE)) {
                     case 05:
-                        lbMsj.setText("Cajones");
+                        lbMsj.setText("Residuos Peligrosos");
+                        break;
+                    case 10:
+                        lbMsj.setText("Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
                     case 15:
-                        lbMsj.setText("Cajones, Small Parts, Intendencia, Molduradoras, Residuos peligrosos, Calidad, RF5, Tunel");
+                        lbMsj.setText("Small Parts, Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
-                    case 25:
-                        lbMsj.setText("Small parts, Intendencia, Molduradoras, Residuos Peligrosos, Calidad, RF5, Tunel, Tapas");
+                    case 20:
+                        lbMsj.setText("Molduradoras, Small Parts, Calidad, RF5, Tunel, Tapas de chapa, Residuos Peligrosos");
                         break;
-                    case 35:
-                        lbMsj.setText("Tapas solidas");
+                    case 30:
+                        lbMsj.setText("Administrativos, Molduradoras, Small Parts");
                         break;
                     case 40:
-                        lbMsj.setText("Tapas solidas");
+                        lbMsj.setText("Intendencia, Mantenimiento, Administrativos");
                         break;
-                    case 50:
-                        lbMsj.setText("Administrativos, Intendencia, Guardias, Mantenimiento");
-                        break;    
                 }
                 break;
 
@@ -674,33 +612,33 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                         lbMsj.setText("Herrajes, Interiores");
                         break;
                     case 25:
-                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
+                        lbMsj.setText("Herrajes, Interiores");
                         break;
                     case 30:
-                        lbMsj.setText("Interiores,Produccion Planta 2, Pulido");
+                        lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
                         break;
-                    case 40:
-                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
+                    case 35:
+                        lbMsj.setText("Herrajes,Interiores, Produccion Planta 2,Pulido");
                         break;
-                    case 50:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                    case 45:
+                        lbMsj.setText("Interiores, Planta 2, Pulido, Acabado");
                         break;
                 }
                 break;
 
             case 19:// extra switch de comida de tarde
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 10:
-                        lbMsj.setText("Acabado, Cajones, Small Parts");
+                    case 00:
+                        lbMsj.setText("Pulido, Acabado, Cajones");
                         break;
                     case 15:
-                        lbMsj.setText("bugeo minuto 15");
+                        lbMsj.setText("Cajones, Small Parts");
                         break;
                     case 25:
-                        lbMsj.setText("Small Parts, Tapas");
+                        lbMsj.setText("Cajones, Small Parts, Tapas Solidas");
                         break;
-                    case 30:
-                        lbMsj.setText("Administrativos, Intendencia");
+                    case 40:
+                        lbMsj.setText("Small Parts, Tapas Solidas, Administrativos, Intendencia");
                         break;
                 }
                 break;
@@ -714,33 +652,33 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                 break;
             case 22:// extra switch de cena
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 05:
+                    case 10:
                         lbMsj.setText("Herrajes, Interiores, Produccion Planta 2");
                         break;
-                    case 10:
-                        lbMsj.setText("Interiores,Planta 2, Pulido");
+                    case 15:
+                        lbMsj.setText("Interiores, Produccion Planta 2, Pulido");
                         break;
                     case 20:
-                        lbMsj.setText("Planta 2, Pulido, Acabado bug 20");
+                        lbMsj.setText("Interiores, Produccion Planta 2, Pulido");
                         break;
-                    case 30:
-                        lbMsj.setText("Pulido, Acabado, Cajones");
+                    case 25:
+                        lbMsj.setText("Produccion Planta 2, Pulido, Acabado");
                         break;
-                    case 45:
+                    case 40:
+                        lbMsj.setText("Acabado, Cajones");
+                        break;
+                    case 55:
                         lbMsj.setText("Cajones, Small Parts");
-                        break;
-                    case 50:
-                        lbMsj.setText("Cajones, Small Parts, Tapas");
                         break;
                 }
                 break;
             case 23:// extra switch de cena 
                 switch (minActual.get(Calendar.MINUTE)) {
-                    case 00:
-                        lbMsj.setText(" Tapas, Administrativos, Intendencia");
+                    case 05:
+                        lbMsj.setText("Small Parts, Tapas Solidas");
                         break;
-                    case 20:
-                        lbMsj.setText("");
+                    case 15:
+                        lbMsj.setText("Tapas Solidas,Administrativos, Intendencia");
                 }
                 break;
         }
@@ -818,8 +756,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                 String nop = lbHora.getText();
 
                 switch (horaActual.get(Calendar.HOUR_OF_DAY)) {
-
-                    case 8:
+                    case 7:
                         Date horae_desayuno = format.parse(hed);
                         Date hora_check = format.parse(nop);
                         long diferencia = hora_check.getTime() - horae_desayuno.getTime();
@@ -859,6 +796,47 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
                         }
                         break;
+                    case 8:
+                        horae_desayuno = format.parse(hed);
+                        hora_check = format.parse(nop);
+                        diferencia = hora_check.getTime() - horae_desayuno.getTime();
+
+                        if (hora_check.after(horae_desayuno)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia / (60 * 1000) % 60;
+                            long dias_atraso = diferencia / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("smi tiempo");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso excelent");
+
+                        }
+                        break;
+
                     case 9:
                         horae_desayuno = format.parse(hed);
                         hora_check = format.parse(nop);
@@ -899,7 +877,8 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
                         }
                         break;
-                    case 12:
+
+                    case 11:
                         Date horae_comida = format.parse(hec);
                         Date hora_check2 = format.parse(nop);
                         long diferencia2 = hora_check2.getTime() - horae_comida.getTime();
@@ -928,6 +907,46 @@ public class Principal extends javax.swing.JFrame implements Runnable {
                                 } else if (mins_atraso > 10) {
                                     // tomar medidas para atraso de 8:20 en adelante  
                                     System.out.println("si hay atraso");
+                                    lbAlert.setText("Alerta!! Estas fuera de Hora");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                }
+
+                            }
+
+                        } else {
+                            System.out.println("no hay atraso uju");
+
+                        }
+                        break;
+                    case 12:
+                        horae_comida = format.parse(hec);
+                        hora_check2 = format.parse(nop);
+                        diferencia2 = hora_check2.getTime() - horae_comida.getTime();
+
+                        if (hora_check2.after(horae_comida)) {
+                            System.out.println("si hay atraso");
+
+                            long mins_atraso = diferencia2 / (60 * 1000) % 60;
+                            long dias_atraso = diferencia2 / (24 * 60 * 60 * 1000);
+
+                            //System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                            if (dias_atraso > 0) {
+                                // tomar medidas si es mayor al dia de turno
+                            }
+
+                            // si tiene 1 o mas minutos de atraso ...
+                            if (mins_atraso > 0) {
+
+                                System.out.println(String.format("%d minutos de atraso", mins_atraso));
+
+                                if (mins_atraso >= 0 && mins_atraso <= 10) {
+                                    // tomar medidas para atraso de 8:15 a 8:20
+                                    lbAlert.setText("Excelente");
+                                    System.out.println("A tiempo123");
+                                    System.out.println(String.format("%d minutos de atraso", mins_atraso));
+                                } else if (mins_atraso > 10) {
+                                    // tomar medidas para atraso de 8:20 en adelante  
+                                    System.out.println("si hay atraso123");
                                     lbAlert.setText("Alerta!! Estas fuera de Hora");
                                     System.out.println(String.format("%d minutos de atraso", mins_atraso));
                                 }
@@ -1192,4 +1211,35 @@ public class Principal extends javax.swing.JFrame implements Runnable {
         }
     }
 
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Principal().setVisible(true);
+            }
+        });
+    }
 }
